@@ -1,6 +1,6 @@
 import time
 
-from flask import Flask
+from flask import Flask # Flask turns python map into JSON line 9
 
 app = Flask(__name__)
 
@@ -13,3 +13,4 @@ def get_current_time():
 def say_hellow():
     return {'response' : 'hello world'}
 
+#entry point for backhand
