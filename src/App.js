@@ -1,7 +1,19 @@
-import logo from './logo.svg';
+import logo from './logo.svg'; // image .svg format
 import './App.css';
+import React, {useState, useEffect} from 'react';
 
-function App() {
+
+function App() { // WILL WRAP <HTML>
+  const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect( () => {
+
+    fetch('/time').then(result => result.json()).then(data => {
+      setCurrentTime(data.time);
+    })
+  },[]);
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,9 +29,17 @@ function App() {
         >
           Learn React
         </a>
+        <p>
+          I hope there is snow tomorrow. The time is {currentTime}
+        </p>
       </header>
     </div>
   );
 }
 
 export default App;
+
+//entry point (everything starts here)
+
+// React helps code HTML using javascript (intermediate)
+//  .js is the mian entrypoint and so then you can load the HTML there insteead od the other way around
