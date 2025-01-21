@@ -8,7 +8,7 @@ function App() { // WILL WRAP <HTML>
 
   useEffect( () => {
 
-    fetch('/time').then(result => result.json()).then(data => {
+    fetch('/api/time').then(result => result.json()).then(data => {
       setCurrentTime(data.time);
     })
   },[]);
@@ -30,7 +30,7 @@ function App() { // WILL WRAP <HTML>
           Learn React
         </a>
         <p>
-          I hope there is snow tomorrow. The time is {currentTime}
+          I hope there is snow tomorrow. The current time is {currentTime}
         </p>
       </header>
     </div>
