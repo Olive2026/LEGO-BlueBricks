@@ -1,5 +1,5 @@
  # dirty
-def get_lego_query_payload(keyword):
+def get_lego_query_payload(keyword, index=0, batch_size=12):
     query = {
             "_source": [
                 "product_number",
@@ -12,8 +12,8 @@ def get_lego_query_payload(keyword):
                 "product_versions",
                 "assets"
             ],
-            "from": 0,
-            "size": 3,
+            "from": index,
+            "size": batch_size,
             "query": {
                 "bool": {
                     "must": [],

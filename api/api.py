@@ -20,11 +20,11 @@ def index():
 
 #entry point for backhand
 
-@app.route('/api/search')
+@app.route('/api/search', methods=['POST'])
 def search():
-    #app.logger.info(request.form)
-   
-    keyword = "pig" #equest.form["keyword"]
+    print(request.json)
+    parameters = request.json
+    keyword = parameters['keyword']
     legoquery = LegoQuery('lego.com')
     response = legoquery.search(keyword)
     return response
