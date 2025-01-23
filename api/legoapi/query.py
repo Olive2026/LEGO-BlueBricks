@@ -7,6 +7,7 @@ import re
 from legoapi.test import test
 from legoapi.lego_query_generator import *
 #from legoapi.lego_query_generator import get_lego_query_payload #issue here
+from legoapi.lego_response_parser import *
 
 
 class LegoQuery:
@@ -51,17 +52,19 @@ class LegoQuery:
     
     def search(self, query):
         url = "https://services.slingshot.lego.com/api/v4/lego_historic_product_read/_search"
-        api_key = self.get_api_key()
+        api_key = "p0OKLXd8US1YsquudM1Ov9Ja7H91jhamak9EMrRB" #self.get_api_key()
         print("apiKey = {}".format(api_key))
 
         headers = {}
         headers['Content-Type']= 'application/json'
         headers['X-Api-Key'] = api_key
 
-        payload =get_lego_query_payload(query)
+        payload =get_lego_query_payload(keyword=query, index=0, batch_size=12)
         response = requests.post(url=url, json=payload, headers=headers) #48, 54, 50
-
-        return response
+        #print(response.json())
+        response_print = response.json()
+        parse_response(response_print)
+        return response_print
 
 
 
