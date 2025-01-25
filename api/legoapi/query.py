@@ -53,7 +53,7 @@ class LegoQuery:
     def search(self, query):
         url = "https://services.slingshot.lego.com/api/v4/lego_historic_product_read/_search"
         api_key = "p0OKLXd8US1YsquudM1Ov9Ja7H91jhamak9EMrRB" #self.get_api_key()
-        print("apiKey = {}".format(api_key))
+        #print("apiKey = {}".format(api_key))
 
         headers = {}
         headers['Content-Type']= 'application/json'
@@ -63,8 +63,8 @@ class LegoQuery:
         response = requests.post(url=url, json=payload, headers=headers) #48, 54, 50
         #print(response.json())
         response_print = response.json()
-        parse_response(response_print)
-        return response_print
+        response = parse_response(response_print)
+        return response
 
 
 

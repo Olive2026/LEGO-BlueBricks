@@ -1,0 +1,29 @@
+{
+    "totals" : 12,
+    "manuals": [
+        {
+            "title" : "title",
+            "cover_image":"url",
+            "manual_url":"url",
+            "manual_image":"url",
+            "product_num":"num",
+            "manufacture_date":"num",
+            "lego_group":"string"
+
+        },
+        {
+            "title" : "title",
+            "cover_image":"url",
+            "manual_url":"url",
+            "manual_image":"url",
+            "product_num":"num",
+            "manufacture_date":"num",
+            "lego_group":"string"
+
+        }
+        
+    ]
+    
+
+
+}
