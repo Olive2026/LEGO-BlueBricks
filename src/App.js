@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react';
 
 
 function App() { // WILL WRAP <HTML>
+
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect( () => {
@@ -14,12 +15,25 @@ function App() { // WILL WRAP <HTML>
   },[]);
 
 
+  const handleNameChange = () =>
+  {
+    const names =  ['Bob', 'Peter', 'Andrew', 'Victoria', 'Oliver'];
+    const int = Math.floor(Math.random()*5);
+    return names[int];
+  }
+  const handleBooms = () =>
+  {
+    const booms = ['BOOM ', 'BOOM ', 'BOOM ', 'BOOM ', 'BOOM '];
+    return booms;
+  }
+
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.js</code> and save to stuff change.
         </p>
         <a
           className="App-link"
@@ -30,8 +44,15 @@ function App() { // WILL WRAP <HTML>
           Learn React
         </a>
         <p>
+          Hello {handleNameChange()}!
+        </p>
+        <p>
+          Congratulations, you get five big booms {handleBooms()}!
+        </p>
+        <p>
           I hope there is snow tomorrow. The current time is {currentTime}
         </p>
+        
       </header>
     </div>
   );
