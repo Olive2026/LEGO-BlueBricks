@@ -1,64 +1,37 @@
-import logo from './logo.svg'; // image .svg format
-import './App.css';
-import React, {useState, useEffect} from 'react';
+ // image .svg format
+import { useState } from 'react';
+import SearchInput from './SearchInput';
+import SearchResults from './SearchResults';
 
 
-function App() { // WILL WRAP <HTML>
 
-  const [currentTime, setCurrentTime] = useState(0);
+export default function App() { 
 
-  useEffect( () => {
-
-    fetch('/api/time').then(result => result.json()).then(data => {
-      setCurrentTime(data.time);
-    })
-  },[]);
-
-
-  const handleNameChange = () =>
-  {
-    const names =  ['Bob', 'Peter', 'Andrew', 'Victoria', 'Oliver'];
-    const int = Math.floor(Math.random()*5);
-    return names[int];
-  }
-  const handleBooms = () =>
-  {
-    const booms = ['BOOM ', 'BOOM ', 'BOOM ', 'BOOM ', 'BOOM '];
-    return booms;
+  // WILL WRAP <HTML>
+  const [total, setTotal] = useState(0);
+  const [manuals, setManuals] = useState([
+    { cover_image: "", lego_group: "", manual_image: "", manual_url: "", manufacture_date: "", product_num: "", title: "" },
+  
+  ]);
+  const handleSearchChange = (results) => {
+    setTotal(results.totals);
+    if(results.totals > 0) {
+      const newManuals =results.manuals.map(manual => manual);
+      setManuals(newManuals);
+    }
   }
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to stuff change.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>
-          Hello {handleNameChange()}!
-        </p>
-        <p>
-          Congratulations, you get five big booms {handleBooms()}!
-        </p>
-        <p>
-          I hope there is snow tomorrow. The current time is {currentTime}
-        </p>
-        
-      </header>
+    <div>
+      <SearchInput textChangeFunction={handleSearchChange} />
+      <SearchResults totals={total} manuals={manuals} />
     </div>
   );
-}
+  
+};
 
-export default App;
+
 
 //entry point (everything starts here)
 
