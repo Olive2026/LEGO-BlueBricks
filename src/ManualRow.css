@@ -1,0 +1,28 @@
+.manual-row{
+    cursor: pointer;
+    clear: both;
+    height: fit-content;
+    padding: 1.5em 0;
+}
+.manual-row .image-container{
+    float: left;
+    box-sizing: border-box;
+    padding-right: 15px;
+    display: inline-block;
+}
+img.cover_image{
+    width: 80%;
+}
+.manual-row .content {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.4em;
+    display: inline-block;
+    width: auto;
+}
+.manual-row .content .content-title {
+    font-size: 1.4em;
+    background-color: #E0E0E0;
+    display: flex
+;
+}
