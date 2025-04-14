@@ -19,7 +19,6 @@ export default function ManualRow({manual}){
                 <span>Category: {manual.lego_group}</span>
                 </div>
             </div>
-            
         </div>
     );
 }// {} to acc any variable
