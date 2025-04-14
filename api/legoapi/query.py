@@ -59,7 +59,7 @@ class LegoQuery:
         headers['Content-Type']= 'application/json'
         headers['X-Api-Key'] = api_key
 
-        payload =get_lego_query_payload(keyword=query, index=0, batch_size=12)
+        payload =get_lego_query_payload(keyword=query, index=0, batch_size=12) #change index number (todo)
         response = requests.post(url=url, json=payload, headers=headers) #48, 54, 50
         #print(response.json())
         response_print = response.json()
